@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use script";
+
+      let author = {
+        name: "Yuval",
+        surname: "Harari",
+        nationality: "Israeli",
+        married: true,
+        child: undefined,
+        signature: null,
+        friends: {},
+
+        shoutFullName: function () {
+          console.log("Author is " + author.name + " " + author.surname);
+        },
+        shoutBestsellerTitle: function (bestsellerTitle) {
+          console.log("His bestseller is " + bestsellerTitle);
+        },
+      };
+
+      console.log(author);
+
+      author.age = "43";
+      author.book = "Homo Deus";
+
+      author.sayFamousBooksTitle = () =>
+        console.log("The famous books are Sapiens and Homo Deus");
+
+      author.shoutFullName();
+      author.shoutBestsellerTitle("Sapiens");
+      author.sayFamousBooksTitle();
+
+      let getPropertyAndValue = (obj) => {
+        for (let key in obj) {
+          console.log(key + " : " + obj[key]);
+        }
+      };
+      getPropertyAndValue(author);
+
+      function isMultiObj(obj) {
+        for (let key in obj) {
+          if (typeof obj[key] === "object" && obj[key] !== null) return true;
+        };
+        return false;
+      };
+
+      console.log(isMultiObj(author));
+
+      let mum = {
+        name: "Jadviga",
+        surname: "Zenkova",
+        age: 65,
+        signature: null,
+      };
+      console.log(isMultiObj(mum));
+    </script>
+  </body>
+</html>

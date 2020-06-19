@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>hw_methodsOfArrays</title>
+  </head>
+  <body>
+    
+    <!-- First task -->
+
+    <script>
+      "use strict";
+
+      function randomArrayGenerator(lenghtArray, endValue) {
+        const output = [];
+
+        for (let i = 0; i < lenghtArray; i++) {
+          output[i] = Math.round(Math.random() * endValue);
+        }
+        return output;
+      }
+      console.log(randomArrayGenerator(10, 100));
+    </script>
+
+    <!-- First task  -->
+
+    <!-- Second task -->
+
+    <script>
+      "use strict";
+      let firstArray = [
+        "drugs",
+        "drugs",
+        "drugs",
+        "sex",
+        "drugs",
+        "rock and roll",
+        "drugs",
+        "love",
+      ];
+      let secondArray = ["egalite", "fraternite", "liberte"];
+      let thirdArray = ["muerte", "Partia", "muerte", "o"];
+
+      function arraySplicer(array, valueToDeleted) {
+        if (!array.includes(valueToDeleted)) {
+          return array;
+        } else {
+          return array.filter((item) => item !== valueToDeleted);
+        }
+      }
+
+      console.log(arraySplicer(firstArray, "drugs"));
+      console.log(arraySplicer(secondArray, "mort"));
+      console.log(arraySplicer(thirdArray, "muerte"));
+
+      /* //Second task */
+    </script>
+
+    <!-- Third task -->
+
+    <script>
+      "use strict";
+
+      function getArr() {
+        let arr = [];
+        let loop = true;
+
+        while (loop) {
+          let value = prompt("Enter item of array");
+
+          if (value == null || value === "") {
+            loop = false;
+          } else arr.push(value);
+        }
+
+        function callbackForMap(item) {
+          if (!isNaN(item)) return parseFloat(item);
+          if (item == "null") return null;
+          if (item == "true") return true;
+          if (item == "false") return false;
+          if (item == "undefined") return undefined;
+          return item;
+        }
+        const newArray = arr.map(callbackForMap);
+        return newArray;
+      }
+
+      console.log(getArr());
+    </script>
+
+    <!-- //Third task -->
+
+    <!-- Forth task -->
+
+    <script>
+      "use strict";
+
+      const arrayOfPersons = [
+        {
+          name: "Ferdinant",
+          surname: "Foch",
+          age: 54,
+          nationality: "French",
+          skill: "Military management",
+          zodiacSign: undefined,
+          height: 173,
+          isAlive: false,
+        },
+        {
+          name: "Jackson",
+          surname: "Bricks",
+          age: 20,
+          nationality: "USA",
+          skill: "farmer",
+          height: 187,
+          specialTrait: "mechanical arms",
+          isFictionalCharacter: true,
+        },
+        {
+          name: "Hideo",
+          surname: "Kozima",
+          age: 56,
+          nationality: "USA",
+          skill: "game developer",
+          height: 173,
+          specialTrait: "genius",
+          actualGames: ["Death Stranding", "Metal Gear"],
+          isAlive: true,
+        },
+        {
+          name: "Kim",
+          surname: "Kardashian",
+          age: 39,
+          nationality: "USA",
+          skill: "model",
+          height: 159,
+          zodiacSign: "scorpio",
+        },
+        {
+          name: "Mia",
+          surname: "Khalifa",
+          age: 27,
+          nationality: "Lebanon",
+          skill: "actress",
+          height: 157,
+          zodiacSign: "saggitarius",
+          specialTrait: "very exspressionable",
+          isAlive: true,
+          isFictionalCharacter: false,
+        },
+        {
+          name: "Herman",
+          surname: "Hesse",
+          age: 85,
+          nationality: "Germany",
+          skill: "writer",
+          zodiacSign: undefined,
+          isAlive: false,
+          isFictionalCharacter: false,
+          bibliography: ["Der Steppen Wolf", "Das Glasperlenspiel"],
+        },
+        {
+          name: "Fedor",
+          surname: "Dostoevsky",
+          age: 60,
+          nationality: "Russia",
+          skill: "writer",
+          isAlive: false,
+          isFictionalCharacter: false,
+          bibliography: ["The demons", "The Crime and Punishment", "The Idiot"],
+        },
+        {
+          name: "Doomguy",
+          surname: undefined,
+          age: undefined,
+          nationality: undefined,
+          skill: "demon slayer",
+          zodiacSign: undefined,
+          isFictionalCharacter: true,
+          specialTrait: "Angry a bit",
+        },
+        {
+          name: "Sonic",
+          surname: "The Hedgehog",
+          age: 13,
+          nationality: undefined,
+          zodiacSign: undefined,
+          isFictionalCharacter: true,
+          specialTrait: "Fast as f#@k",
+        },
+        {
+          name: "Bruce",
+          surname: "Wayne",
+          age: 12,
+          isFictionalCharacter: false,
+        },
+        {
+          name: "Ella",
+          surname: "Fitzgerald",
+          age: 79,
+          isFrictionalCharacter: false,
+          isAlive: false,
+          specialTrait: "Amazing voice",
+          signatureSongs: [
+            "Cry Me a river",
+            "Hello Dolly",
+            "Summertime",
+            "In a sentimental mood",
+          ],
+        },
+      ];
+
+      /* 1. Вернуть массив из объектов, состоящих (name, surname,age). Если значение какого-либо из свойств не извеcтно, 
+присвоить ему значение null.
+Отсортировать его в алфавитном порядке, но основании фамилии (surname) */
+
+      function getSortArray(arr) {
+        function callbackForMap(item) {
+          return {
+            name: item.name === undefined ? null : item.name,
+            surname: item.surname === undefined ? null : item.surname,
+            age: item.age === undefined ? null : item.age,
+          };
+        }
+
+        function callbackSorterOfPersons(a, b) {
+          if (a.surname > b.surname) return 1;
+          if (a.surname < b.surname) return -1;
+        }
+        return arrayOfPersons.map(callbackForMap).sort(callbackSorterOfPersons);
+      }
+
+      console.log(getSortArray(arrayOfPersons));
+
+      /* 2. Вернуть массив объектов, обладающих не менее чем восемью свойствами и отсортировать их по убыванию количества свойств */
+
+      function getArr(arr) {
+        function callbackForFilter(item) {
+          return Object.keys(item).length >= 8;
+        }
+
+        function callbackForSorter(a, b) {
+          if (Object.keys(a).length > Object.keys(b).length) return -1;
+          return 1;
+        }
+
+        return arrayOfPersons.filter(callbackForFilter).sort(callbackForSorter);
+      }
+      console.log(getArr(arrayOfPersons));
+
+      // 3 Отсортировать массив в порядке возрастания возраста объектов (age)
+
+      function getSorterAge(arr) {
+        function callbackSorterAgeOfPersons(a, b) {
+          if (a.age < b.age) return -1;
+          if (a.age > b.age) return 1;
+        }
+        return arr.map((item) => item).sort(callbackSorterAgeOfPersons);
+      }
+      console.log(getSorterAge(arrayOfPersons));
+
+      //4. Вернуть массив объектов, обладающих свойством "знак зодиака" (zodiacSign)
+
+      function getArrWithZodiakSignProp(arr) {
+        function callbackForFilter(item) {
+          for (let key in item) if (key === "zodiacSign") return item;
+        }
+        return arr.filter(callbackForFilter);
+      }
+
+      console.log(getArrWithZodiakSignProp(arrayOfPersons));
+
+      // при помощи стрелочной функции
+
+      console.log(
+        arrayOfPersons.filter((item) => {
+          for (let key in item) if (key === "zodiacSign") return item;
+        })
+      );
+
+      /* 5. Отсортировать массив таким образом, чтобы в начале списка оказывались объекты,обладающие свойством-объектом или свойством-массивом */
+
+      function getSorterObgectProp(arr) {
+        function callbackForSort(item) {
+          for (let key in item)
+            if (typeof item[key] === "object" && item[key] !== null) return -1;
+          return 1;
+        }
+
+        return arr.sort(callbackForSort);
+      }
+      console.log(getSorterObgectProp(arrayOfPersons));
+
+      /* 6. Вернуть массив объектов, добавив им свойсвойство id, присвоив ему случайное уникальное трехзначное число */
+
+      function getNewArrWithId(arr) {
+        function callbackForMapId(item) {
+          let id;
+
+          function getRandomId(from, to) {
+            id = Math.floor(Math.random() * (to - from) + from);
+            return id;
+          }
+
+          getRandomId(100, 999);
+
+          item.id = id;
+          return item;
+        }
+
+        return arr.map(callbackForMapId);
+      }
+
+      console.log(getNewArrWithId(arrayOfPersons));
+
+      /* 7. Вернуть массив объектов, являющихся вымышленными персонажами (isFictionalCharacter: true), после чего присвоить каждому из объектов свойство
+fictionalUniverse со значением null. */
+
+      function getArrWithFictionalCharacter(arr) {
+        function callbackForFilter(item) {
+          return item.isFictionalCharacter === true;
+        }
+
+        function callbackForMap(item) {
+          item.fictionalUniverse = null;
+          return item;
+        }
+
+        return arr.filter(callbackForFilter).map(callbackForMap);
+      }
+
+      console.log(getArrWithFictionalCharacter(arrayOfPersons));
+    </script>
+  </body>
+</html>

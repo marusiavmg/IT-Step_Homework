@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Logical operators</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      /* First task */
+
+      let name = prompt("Enter your Name", "");
+      let lastName = prompt("Enter your Lastname", "");
+      let nickName = prompt("Enter your Nickname", "");
+
+      name && lastName && nickName
+        ? console.log("Welcome, " + (name + lastName) + "!")
+        : name && lastName
+        ? console.log("Welcome, " + (name + lastName) + "!")
+        : nickName && lastName
+        ? console.log("Welcome, " + nickName + "!")
+        : nickName && name
+        ? console.log("Welcome, " + name + "!")
+        : " " && " " && " "
+        ? console.log("Welcome, Noname!")
+        : lastName || nickName
+        ? console.log("Welcome, Noname!")
+        : console.log("Finish");
+
+      /* /First task */
+
+      /*Second task*/
+
+      let num = prompt("Введите число", "");
+      let result = "";
+
+      if (!isNaN(num)) {
+        result += num > 0 ? " положительное, " : " отрицательное,";
+        result += num > 100 ? " больше ста, " : " меньше ста, ";
+        result += num % 2 == 0 ? " четное, " : " нечетное, ";
+        result += num % 1 == 0 ? " целое" : " дробное";
+        if (num == 0) {
+          alert("Введенное число " + num);
+        } else if (num == 100) {
+          alert("Введенное число " + num + " положительное, четное, целое");
+        } else {
+          alert("Введенное число " + num + result);
+        }
+      } else {
+        if (num < "z") {
+          console.log("ENG");
+          alert("Введите цифровые значения");
+        } else {
+          console.log("RUS");
+          alert("Введите цифровые значения");
+        }
+      }
+
+      /*/Second task*/
+
+      /* Third task */
+
+      let firstName = prompt("Enter your Name", "");
+      let age = prompt("Enter your age", "");
+
+      age >= 18
+        ? alert("Welcome, " + firstName + "!")
+        : alert("Sorry, " + firstName + ", access is closed :(");
+
+      /* /Third task */
+
+      /* Fourth task */
+
+      let value = +prompt("Enter a number from 0 to 9", "");
+
+      if (value > 9) {
+        alert("Entered number is greater than 9");
+      } else if (value < 0) {
+        alert("Enter а number from 0 to 9 ");
+      } else if (isNaN(value)) {
+        console.log(NaN);
+        alert("Введите числовые значения");
+      }
+
+      switch (value) {
+        case 0:
+          alert("ноль");
+          break;
+
+        case 1:
+          alert("один");
+          break;
+
+        case 2:
+          alert("два");
+          break;
+
+        case 3:
+          alert("три");
+          break;
+
+        case 4:
+          alert("четыре");
+          break;
+
+        case 5:
+          alert("пять");
+          break;
+
+        case 6:
+          alert("шесть");
+          break;
+
+        case 7:
+          alert("семь");
+          break;
+
+        case 8:
+          alert("восемь");
+          break;
+
+        case 9:
+          alert("девять");
+          break;
+
+        default:
+      }
+
+      /* /Fourth task */
+    </script>
+  </body>
+</html>

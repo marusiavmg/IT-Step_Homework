@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cycles</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      /*  First task */
+
+      function getValueRow() {
+        let initialNumber;
+        let lastNumber;
+
+        do {
+          initialNumber = +prompt(
+            "Введите первое число диапазона (диапазон должен включать не менее 5 цифр)"
+          );
+          lastNumber = +prompt(
+            "Введите последнее число диапазона (диапазон должен включать не менее 5 цифр)"
+          );
+        } while (Math.abs(lastNumber - initialNumber) < 5);
+
+        if (initialNumber < lastNumber) {
+          for (let i = initialNumber; i <= lastNumber; i++) {
+            console.log(i);
+          }
+        } else {
+          for (let i = initialNumber; i >= lastNumber; i--) {
+            console.log(i);
+          }
+        }
+      }
+
+      getValueRow();
+
+      /* /First task */
+
+      /*  Second task */
+      let pin;
+      let puk;
+      let firstWindowText = "Enter a Pincode";
+      let secondWindowText = "Enter a Pukcode";
+      let attempt = 0;
+      let effort = 0;
+
+      do {
+        pin = prompt(firstWindowText);
+        attempt++;
+      } while (pin != "1234" && attempt < 3);
+      if (pin == "1234") {
+        alert("Success");
+      } else {
+        alert("Faild");
+        do {
+          puk = prompt(secondWindowText);
+          effort++;
+        } while (puk != "1111" && effort < 3);
+        if (puk == "1111") {
+          alert("Success!");
+        } else {
+          alert("The card is blocked, contact the bank");
+        }
+      }
+      /* /Second task */
+
+      /*  Third task  */
+
+      function getDescriptionOfNumbers() {
+        let firstNum = +prompt("Введите первое число диапазона");
+        let secondNum = +prompt("Введите второе число диапазона");
+        let a = firstNum;
+        let b = secondNum;
+        let resultValue;
+        let resultSign;
+        let resultEven;
+        let resultInteger;
+
+        if (!isNaN(a && b)) {
+          if (a <= b) {
+            for (a; a <= b; a++) {
+              if (a > 100) {
+                resultValue = " - Больше ста, ";
+              } else if (a === 100) {
+                resultValue = " - Равно ста, ";
+              } else {
+                resultValue = " - Меньше ста, ";
+              }
+              if (a > 0) {
+                resultSign = "положительное, ";
+              } else if (a === 0) {
+                resultSign = "";
+              } else {
+                resultSign = "отрицательное, ";
+              }
+              if (a % 2 == 0) {
+                resultEven = "четное, ";
+              } else {
+                resultEven = "нечетное, ";
+              }
+              if (a % 1 == 0) {
+                resultInteger = "целое.";
+              } else {
+                resultInteger = "дробное.";
+              }
+              console.log(
+                a + resultValue + resultSign + resultEven + resultInteger
+              );
+            }
+          } else {
+            for (a; a >= b; a--) {
+              if (a > 100) {
+                resultValue = " - Больше ста, ";
+              } else if (a === 100) {
+                resultValue = " - Равно ста, ";
+              } else {
+                resultValue = " - Меньше ста, ";
+              }
+
+              if (a > 0) {
+                resultSign = "положительное, ";
+              } else if (a === 0) {
+                resultSign = "";
+              } else {
+                resultSign = "отрицательное, ";
+              }
+
+              if (a % 2 == 0) {
+                resultEven = "четное, ";
+              } else {
+                resultEven = "нечетное, ";
+              }
+              if (Number.isInteger(a)) {
+                resultInteger = "целое.";
+              } else {
+                resultInteger = "дробное.";
+              }
+              console.log(
+                a + resultValue + resultSign + resultEven + resultInteger
+              );
+            }
+          }
+        } else {
+          console.log("Введите числовые значения");
+        }
+      }
+      getDescriptionOfNumbers();
+
+      /* /Third task  */
+
+      /* Forth task */
+
+      function breakIteration() {
+        let firstNumber = +prompt("Введите первое число диапазона");
+        let secondNumber = +prompt("Введите второе число диапазона");
+        let i = firstNumber;
+        let counter = 0;
+
+        if (firstNumber < secondNumber) {
+          for (i; i <= secondNumber; i++) {
+            counter++;
+            if (counter > 7) break;
+            console.log(i);
+          }
+          console.log("breakIteration");
+        } else {
+          for (i; i >= secondNumber; i--) {
+            counter++;
+            if (counter > 7) break;
+            console.log(i);
+          }
+          console.log("breakIteration");
+        }
+      }
+      breakIteration();
+      /* /Forth task */
+    </script>
+  </body>
+</html>

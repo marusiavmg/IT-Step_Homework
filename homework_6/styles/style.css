@@ -1,0 +1,79 @@
+.flex-conteiner {
+  width: 1200px;
+  border: solid gray 1px;
+  margin: auto;
+}
+.title {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 22px;
+  font-weight: bolder;
+  margin: 5px;
+}
+.item {
+  border: solid black 3px;
+  width: 100px;
+  margin: 5px 5px;
+  text-align: center;
+  background: green;
+}
+.block {
+  display: flex;
+  flex-direction: row;
+}
+.conteiner-example-one {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.conteiner-example-two {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.block-three {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.conteiner-example-three {
+  display: flex;
+  justify-content: space-between;
+}
+.block-one {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.block-two {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.conteiner-example-five {
+  display: flex;
+  flex-direction: row;
+}
+.block-five {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 0 190px;
+}
+.conteiner-example-six {
+  display: flex;
+  justify-content: flex-end;
+}
+.block-first {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.block-seven {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.block-seven-second {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

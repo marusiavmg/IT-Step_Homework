@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card {
+        width: 290px;
+        border: solid black 1px;
+        margin: 5px;
+      }
+      .text {
+        font-size: 20px;
+        color: green;
+        padding: 20px;
+        margin: 5px;
+      }
+      .background {
+        background-color: honeydew;
+      }
+      .button {
+        width: 322px;
+        font-size: 18px;
+        padding: 10px;
+        color: green;
+      }
+      .input {
+        width: 230px;
+        height: 20px;
+        margin: 7px;
+      }
+      .cardForMassage {
+        width: 230px;
+        height: 90px;
+        margin: 5px;
+      }
+      .submit {
+        width: 90px;
+        font-size: 14px;
+        font-weight: bolder;
+        padding: 4px;
+        color: green;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      .red {
+        border: solid 1px red;
+      }
+      .green {
+        border: solid 1px green;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      /* Task 1 */
+
+      const body = document.body;
+
+      const content = document.createElement("div");
+      content.setAttribute("id", "content");
+      content.innerHTML += `<h2>Task 1</h2>`;
+      body.append(content);
+
+      const button = document.createElement("input");
+      button.setAttribute("type", "button");
+      button.setAttribute("value", "Search  tags by id HTML-element");
+      button.setAttribute("id", "button");
+      button.setAttribute("onclick", "getTagsCount()");
+      button.setAttribute("class", "button");
+      content.append(button);
+
+      const resultOfSearch = document.createElement("div");
+      resultOfSearch.setAttribute("id", "resultOfSearch");
+      resultOfSearch.setAttribute("class", "text card background");
+      content.append(resultOfSearch);
+
+      function getTagsCount() {
+        let valueOfId = prompt("Enter string value id HTML-element");
+        let valueOfTag = prompt("Enter string value tag");
+
+        if (
+          valueOfId == "" ||
+          valueOfId == null ||
+          !isNaN(valueOfId) ||
+          valueOfTag == "" ||
+          valueOfTag == null ||
+          !isNaN(valueOfTag)
+        ) {
+          alert("Enter correct value");
+        } else {
+          if (document.getElementById(valueOfId) !== null) {
+            let numberOfTags = document
+              .getElementById(valueOfId)
+              .querySelectorAll(valueOfTag).length;
+            document.getElementById(
+              "resultOfSearch"
+            ).innerHTML += `${numberOfTags} ${valueOfTag} in ${valueOfId}<br>`;
+          } else {
+            let numberOfTags = document.querySelectorAll(valueOfTag).length;
+            document.getElementById(
+              "resultOfSearch"
+            ).innerHTML += `${numberOfTags} ${valueOfTag} in body<br>`;
+          }
+        }
+      }
+
+      /*  Task 2 */
+
+      const contentTask2 = document.createElement("div");
+      contentTask2.setAttribute("id", "contentTask2");
+      contentTask2.innerHTML += `<h2>Task 2</h2>`;
+      body.append(contentTask2);
+
+      const button2 = document.createElement("input");
+      button2.setAttribute("id", "button");
+      button2.setAttribute("type", "button");
+      button2.setAttribute("onclick", "getCards()");
+      button2.setAttribute("value", "Сlick here and get cards");
+      button2.classList.add("button");
+      contentTask2.append(button2);
+
+      const arrayOfPersons = [
+        {
+          name: "Ferdinant",
+          surname: "Foch",
+          age: 54,
+          nationality: "French",
+          skill: "Military management",
+          zodiacSign: undefined,
+          height: 173,
+          isAlive: false,
+        },
+        {
+          name: "Jackson",
+          surname: "Bricks",
+          age: 20,
+          nationality: "USA",
+          skill: "farmer",
+          height: 187,
+          specialTrait: "mechanical arms",
+          isFictionalCharacter: true,
+        },
+        {
+          name: "Hideo",
+          surname: "Kozima",
+          age: 56,
+          nationality: "Japan",
+          skill: "game developer",
+          height: 173,
+          specialTrait: "genius",
+          actualGames: ["Death Stranding", "Metal Gear"],
+          isAlive: true,
+        },
+        {
+          name: "Kim",
+          surname: "Kardashian",
+          age: 39,
+          nationality: "USA",
+          skill: "model",
+          height: 159,
+          zodiacSign: "scorpio",
+        },
+        {
+          name: "Mia",
+          surname: "Khalifa",
+          age: 27,
+          nationality: "Lebanon",
+          skill: "actress",
+          height: 157,
+          zodiacSign: "saggitarius",
+          specialTrait: "very exspressionable",
+          isAlive: true,
+          isFictionalCharacter: false,
+        },
+        {
+          name: "Herman",
+          surname: "Hesse",
+          age: 85,
+          nationality: "Germany",
+          skill: "writer",
+          zodiacSign: undefined,
+          isAlive: false,
+          isFictionalCharacter: false,
+          bibliography: ["Der Steppen Wolf", "Das Glasperlenspiel"],
+        },
+        {
+          name: "Fedor",
+          surname: "Dostoevsky",
+          age: 60,
+          nationality: "Russia",
+          skill: "writer",
+          isAlive: false,
+          isFictionalCharacter: false,
+          bibliography: ["The demons", "The Crime and Punishment", "The Idiot"],
+        },
+        {
+          name: "Doomguy",
+          surname: undefined,
+          age: undefined,
+          nationality: undefined,
+          skill: "demon slayer",
+          zodiacSign: undefined,
+          isFictionalCharacter: true,
+          specialTrait: "Angry a bit",
+        },
+        {
+          name: "Sonic",
+          surname: "The Hedgehog",
+          age: 13,
+          nationality: undefined,
+          zodiacSign: undefined,
+          isFictionalCharacter: true,
+          specialTrait: "Fast as f#@k",
+        },
+        {
+          name: "Bruce",
+          surname: "Wayne",
+          age: 12,
+          isFictionalCharacter: true,
+        },
+        {
+          name: "Ella",
+          surname: "Fitzgerald",
+          age: 79,
+          isFrictionalCharacter: false,
+          isAlive: false,
+          specialTrait: "Amazing voice",
+          signatureSongs: [
+            "Cry Me a river",
+            "Hello Dolly",
+            "Summertime",
+            "In a sentimental mood",
+          ],
+        },
+      ];
+
+      function getCards() {
+        for (let i = 0; i < arrayOfPersons.length; i++) {
+          const object = arrayOfPersons[i];
+          const cardsContainer = document.createElement("div");
+          cardsContainer.setAttribute("class", "card text");
+
+          let propContainer = document.createElement("div");
+          cardsContainer.append(propContainer);
+
+          for (let prop in object) {
+            const name = `name:  ${object.name}`;
+            const surname = `surname:  ${object.surname}`;
+            const age = `age:  ${object.age}`;
+            const nationality = `nationality:  ${object.nationality}`;
+
+            propContainer.innerHTML = `${name} <br> ${surname} <br> ${age} <br> ${nationality} <br>`;
+
+            if (typeof object[prop] === "object" && object[prop] !== null) {
+              let list = "";
+              let elemList = "";
+              let elemListContainer = document.createElement("div");
+
+              for (let item in object[prop]) {
+                list += `<li> ${object[prop][item]} </li>`;
+                elemList = `${prop}:  ${list}`;
+              }
+
+              elemListContainer.innerHTML = `${elemList}`;
+              cardsContainer.append(elemListContainer);
+            }
+          }
+
+          contentTask2.append(cardsContainer);
+        }
+      }
+
+      /* Task 3 */
+
+      const appendElement = (position, tag, id) => {
+        const elem = document.createElement(tag);
+        elem.id = id;
+        position.append(elem);
+      };
+
+      const appendInput = (form, type, id, required, lable) => {
+        const inputContainer = document.createElement("div");
+
+        const input = document.createElement("input");
+        input.setAttribute("type", type);
+        input.setAttribute("required", required);
+        input.id = id;
+
+        if (lable) {
+          const lableForInput = document.createElement("lable");
+          lableForInput.setAttribute = ("for", id);
+          lableForInput.innerHTML = lable;
+          inputContainer.append(lableForInput);
+        }
+
+        inputContainer.append(input);
+        form.append(inputContainer);
+      };
+
+      const clearForm = (form) => {
+        for (let input of form.elements) {
+          if (input.type == "submit") continue;
+          if (input.type == "checkbox" || input.type == "radio")
+            input.checked = false;
+          input.classList.remove("green", "red");
+          input.value = "";
+        }
+      };
+
+      appendElement(body, "div", "contentTask3");
+      contentTask3.innerHTML = `<h2>Task 3</h2>`;
+
+      appendElement(contentTask3, "form", "mainForm");
+      mainForm.innerHTML = `<h3><i>Registration form</i><h2>`;
+      mainForm.classList.add("text", "card", "background");
+
+      appendInput(mainForm, "text", "nameInput", "true", "Name");
+      nameInput.classList.add("input");
+
+      appendInput(mainForm, "text", "mailInput", "true", "E-mail");
+      mailInput.classList.add("input");
+
+      appendInput(mainForm, "password", "passwordInput", "true", "Password");
+      passwordInput.classList.add("input");
+
+      appendElement(mainForm, "div", "radioTitle");
+      radioTitle.innerHTML = `Select account:`;
+
+      appendInput(mainForm, "radio", "radioInputFree", "true", "Free account");
+      radioInputFree.setAttribute("name", "account");
+      radioInputFree.setAttribute("checked", "true");
+
+      appendInput(mainForm, "radio", "radioInputPaid", "true", "Paid account");
+      radioInputPaid.setAttribute("name", "account");
+
+      appendInput(
+        mainForm,
+        "checkbox",
+        "checkboxInput",
+        "true",
+        `I have read <a href = 'http://www.it-lex.ru/usloviya_ispolzovaniya_servisa/polzovatelskoe_soglashenie/' target ="_blank">the user agreement</a>`
+      );
+
+      appendElement(mainForm, "div", "textarea");
+      textarea.innerHTML = `Message`;
+
+      appendElement(mainForm, "textarea", "textareaInput");
+      textareaInput.setAttribute("cols", "35");
+      textareaInput.setAttribute("rows", "6");
+
+      appendInput(mainForm, "submit", "submitForm");
+      submitForm.classList.add("submit");
+
+      nameInput.addEventListener("change", (event) => {
+        nameInput.classList.add("green");
+      });
+
+      mailInput.addEventListener("change", () => {
+        if (!mailInput.value.includes("@")) {
+          alert("Entet again, e-mail must contains @");
+          mailInput.classList.add("red");
+        } else {
+          mailInput.classList.add("green");
+        }
+      });
+
+      passwordInput.addEventListener("change", (event) => {
+        if (event.target.value.length < 8) {
+          alert("Password must contains 8 simbols");
+          passwordInput.classList.add("red");
+        } else {
+          passwordInput.classList.add("green");
+        }
+      });
+
+      mainForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        console.log(mainForm);
+        console.log(
+          "Submit! To confirm registration, follow the instructions sent to you email address"
+        );
+        clearForm(mainForm);
+      });
+      
+    </script>
+  </body>
+</html>

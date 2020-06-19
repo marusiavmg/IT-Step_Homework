@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hw_functions&paremeters</title>
+</head>
+<body>
+
+    <script>
+        'use strict'
+
+        /* First task */      
+
+        function sum(firstParameter = '', secondParameter = '', thirdParameter = '') {
+        
+            if (isNaN(firstParameter) || isNaN(secondParameter)  || isNaN(thirdParameter)) { 
+
+                return (firstParameter + secondParameter + thirdParameter);
+            }; 
+                return  (+firstParameter) + (+secondParameter) + (+thirdParameter);                     
+        }; 
+
+      /* /First task */
+
+
+       /*  Second task */
+
+        function getInAlphabetOrder(firstWord, secondWord, thirdWord) {
+            if (firstWord < secondWord && firstWord < thirdWord && secondWord < thirdWord)
+                {return firstWord + ' ' + secondWord + ' ' + thirdWord};
+            if (secondWord < firstWord && secondWord < thirdWord && firstWord < thirdWord) 
+                {return secondWord + ' ' + firstWord + ' ' + thirdWord};
+            if (thirdWord < firstWord && thirdWord < secondWord && firstWord < secondWord)  
+                 {return thirdWord + ' ' + firstWord + ' ' + secondWord};
+            if (firstWord > secondWord && firstWord > thirdWord && secondWord > thirdWord)
+                 {return thirdWord + ' ' +  secondWord + ' ' + firstWord};
+            if (firstWord > secondWord && firstWord > thirdWord && secondWord < thirdWord)
+                {return secondWord + ' ' + thirdWord  + ' ' + firstWord};
+            if (secondWord > firstWord && secondWord > thirdWord && firstWord < thirdWord)
+                {return firstWord + ' ' + thirdWord + ' ' + secondWord}
+            else {return thirdWord + ' ' + firstWord + ' ' + secondWord}
+        };
+              
+   /*  /Second task */
+
+
+    /* Third task  */
+
+    function getUserName(name) {
+                     
+        if(name) 
+             {return 'С уважением,  ' + name }
+        else {
+             name = prompt('Введите имя пользователя', 'UserName');   
+             {return 'С уважением,  ' + name }
+        }                         
+    };          
+                  
+    console.log(getUserName());
+        
+    /* /Third task */
+    
+
+   /*  Forth task */
+  
+    function getMult(a = 1 , b = 1) {
+        if (!isNaN(a) && a > 0 && a % 1 == 0 && isNaN(b)) {
+            return a * a
+        } else if (!isNaN(a) && a > 0 && a % 1 == 0 && !isNaN(b) && b > 0 && b % 1 == 0) {
+            return a ** b     
+        } else if (!isNaN(b) && b > 0 && b % 1 == 0 && isNaN(a)) {
+            return b * b    
+        } else {
+            return 'Значения должны быть положительными целыми числами'
+        }
+    };
+       console.log(getMult(6, 5));
+      
+
+   /* /Forth task */
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MetodsOfStrings</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      /* First task */
+
+      function stringCutter(str, finalIndex = 30, endOfString = "...") {
+        let beginOfString = str.slice(0, finalIndex);
+
+        return beginOfString + endOfString;
+      }
+
+      let firstSentance = "But you have no right to call me a murderer";
+      let secondSentance =
+        "Because they could stand that these were not monsters";
+      let thirdSentance =
+        "And I want to remember it. I never want to forget it";
+
+      console.log(stringCutter(firstSentance));
+      console.log(stringCutter(secondSentance));
+      console.log(stringCutter(thirdSentance, 40, "........"));
+
+      /* /First task */
+
+      /* Second task */
+
+      function registerInvertion(str) {
+        let newString = "";
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] === str[i].toLowerCase()) {
+            newString += str[i].toUpperCase();
+          } else {
+            newString += str[i].toLowerCase();
+          };
+        };
+        return newString;
+      };
+
+      let firstString = "Be my Valentine";
+      let secondString = "WTF";
+      let thirdString = "C&C Red Alert 3";
+
+      console.log(registerInvertion(firstString));
+      console.log(registerInvertion(secondString));
+      console.log(registerInvertion(thirdString));
+
+      /* /Second task */
+
+      /* Third task */
+
+      function stringDiscription(str) {
+        let allSimbols = str.length;
+
+        let symbolsWithoutSpaces = str.split(" ").join("").length;
+
+        let quantityOfWords = str.split(" ").length;
+
+        let strLength = str.length;
+
+        let sentenceType = str[strLength - 1].includes(".") ? "statement"
+          : str[strLength - 1].includes("?") ? "question"
+          : str[strLength - 1].includes("!") ? "exclamation"
+          : "null";
+
+        let obj = {
+          allSimbols: allSimbols,
+          symbolsWithoutSpaces: symbolsWithoutSpaces,
+          quantityOfWords: quantityOfWords,
+          sentenceType: sentenceType,
+        };
+
+        return obj;
+      }
+
+      let firstStr = "Where did you get your phone?";
+      let secondStr = "You are very attractive men!";
+      let thirdStr = "People hate latecomers.";
+      let forthStr = "Right or left:";
+
+      console.log(stringDiscription(firstStr));
+      console.log(stringDiscription(secondStr));
+      console.log(stringDiscription(thirdStr));
+      console.log(stringDiscription(forthStr));
+
+      /* /Third task */
+
+      /* Forth task */
+
+      let moderation = (str, bannedWord) => {
+        let lowerStr = str.toLowerCase();
+        if (lowerStr.includes(bannedWord)) {
+          let moderatedValue = "";
+          for (let i = 0; i < bannedWord.length; i++) {
+            moderatedValue += "*";
+          }
+          let index = lowerStr.indexOf(bannedWord);
+          return (
+            str.slice(0, index) + moderatedValue + str.slice(index + bannedWord.length)
+          )
+        }
+        return str
+      };
+
+      let firstStrForChecking = "Follow the white raBbiT into forest";
+      let secondStrForChecking = "Call me Ishmael";
+      let thirdStrForChecking = "Repent before bloody rabbit punish you!";
+
+      console.log(moderation(firstStrForChecking, "rabbit"));
+      console.log(moderation(secondStrForChecking, "rabbit"));
+      console.log(moderation(thirdStrForChecking, "rabbit"));
+
+      /* /Third task */
+    </script>
+  </body>
+</html>

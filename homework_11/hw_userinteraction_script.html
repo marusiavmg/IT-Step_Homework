@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>User_interaction</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      /* First task  */
+
+      let prof = prompt("What is your profession?", "");
+      console.log(prof);
+      alert(prof);
+
+      /* /First task  */
+
+      /* Second task */
+
+      let firstNumber = +prompt("Enter the first number");
+      let secondNumber = +prompt("Enter the second number");
+      let thirdNumber = +prompt("Enter the third number");
+      let sum = firstNumber + secondNumber + thirdNumber;
+      console.log("sum =" + sum);
+      alert("sum =" + sum);
+
+      /* /Second task */
+
+      /*  Third task */
+
+      let name = prompt("Enter your name", "");
+      let age = prompt("Enter your age", "");
+
+      if (age >= 18) {
+        // alert(`Welcome, ${name} !`);
+        alert("Welcome," + name + "!");
+        console.log(name + age);
+      } else {
+        alert(`Sorry, ${name}, access is closed`);
+        console.log("Access is closed");
+      }
+
+      /*  /Third task */
+
+      /*  Fourth task */
+
+      let answerForblock = confirm("Do you want to enter a block name?");
+      if (answerForblock) {
+        let blockName = prompt("Enter a block name", "");
+        let answerForElement = confirm("Do you want to enter a element name?");
+        if (answerForElement) {
+          let elementName = prompt("Enter a element name", "__");
+          let answerForModificator = confirm(
+            "Do you want to enter a modificator name?"
+          );
+          if (answerForModificator) {
+            let modificatorName = prompt("Enter a modificator name", "_");
+            alert(blockName + elementName + modificatorName);
+            console.log(blockName + elementName + modificatorName);
+          } else {
+            alert(blockName + elementName);
+            console.log(blockName + elementName);
+          }
+        } else {
+          alert(blockName);
+          console.log(blockName);
+        }
+      } else {
+        alert("Block name not entered");
+        console.log("Block name not entered");
+      }
+
+      /* /Fourth task */
+
+      /* Fifth task */
+
+      let firstAnswer = +prompt("Enter the first number");
+      let secondAnswer = +prompt("Enter the second number");
+      let thirdAnswer = prompt("Enter math operation (minus, plus, mult, div)");
+
+      if (thirdAnswer == "minus") {
+        alert(firstAnswer - secondAnswer);
+        console.log(firstAnswer - secondAnswer);
+      }
+
+      if (thirdAnswer == "plus") {
+        alert(firstAnswer + secondAnswer);
+        console.log(firstAnswer + secondAnswer);
+      }
+
+      if (thirdAnswer == "mult") {
+        alert(firstAnswer * secondAnswer);
+        console.log(firstAnswer * secondAnswer);
+      }
+
+      if (thirdAnswer == "div") {
+        alert(firstAnswer / secondAnswer);
+        console.log(firstAnswer / secondAnswer);
+      }
+
+      /* /Fifth task */
+
+    </script>
+  </body>
+</html>

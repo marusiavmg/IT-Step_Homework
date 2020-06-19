@@ -1,0 +1,90 @@
+.store-container {
+  width: 1000px;
+  margin: auto;
+  background-color: rgb(176, 230, 211);
+  border: solid rgb(27, 118, 124) 5px;
+}
+.title {
+  font-size: 25px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin: 0 0 0 70px;
+}
+.books-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 70px 30px 70px;
+}
+.books {
+  width: 150px;
+  height: 200px;
+}
+.img {
+  width: 150px;
+  height: 200px;
+  border: solid rgb(27, 118, 124) 3px;
+}
+.book-img {
+  display: inline-block;
+  position: relative;
+}
+.book-name {
+  display: inline-block;
+  position: absolute;
+  top: 150px;
+  left: 3px;
+  bottom: 7px;
+  right: 3px;
+  background-color: rgb(142, 236, 118);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 0 0 0;
+  text-align: center;
+}
+.price {
+  display: inline-block;
+  position: absolute;
+  top: 180px;
+  left: 3px;
+  right: 3px;
+  text-align: center;
+  background-color: rgb(109, 211, 197);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.img-promo {
+  width: 150px;
+  height: 200px;
+  border: solid rgb(27, 118, 124) 3px;
+}
+.book-img-promo {
+  display: inline-block;
+  position: relative;
+}
+.book-name-promo {
+  display: inline-block;
+  position: absolute;
+  top: 150px;
+  left: 3px;
+  bottom: 7px;
+  right: 3px;
+  background-color: yellow;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 0 0 0;
+  text-align: center;
+}
+.price-promo {
+  display: inline-block;
+  position: absolute;
+  top: 180px;
+  left: 3px;
+  right: 3px;
+  text-align: center;
+  background-color:green;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.img-promo:hover {
+  border: solid rgb(230, 230, 62) 3px;
+  cursor: pointer;
+}
+.ivent__data-icon {
+  
+}
